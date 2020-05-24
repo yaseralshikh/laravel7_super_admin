@@ -1,7 +1,7 @@
 <?php
 
 Route::prefix('dashboard')->name('dashboard.')->group(function(){
-    Route::get('/index', 'DashboardController@index')->name('index');
+    Route::get('/', 'DashboardController@index')->name('index');
 });
 
 
