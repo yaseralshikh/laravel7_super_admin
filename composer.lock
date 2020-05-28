@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c708e62686dd5398f457aed89a1c789f",
+    "content-hash": "4ebce6142af45920ff26d3327d14c9a7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3846,6 +3846,67 @@
                 }
             ],
             "time": "2020-04-12T16:45:47+00:00"
+        },
+        {
+            "name": "techguy/laravel-ckeditor",
+            "version": "v1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dev-techguy/laravel-ckeditor.git",
+                "reference": "63707c0f452fb8faa3cffb197e50f66a07d1f5d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dev-techguy/laravel-ckeditor/zipball/63707c0f452fb8faa3cffb197e50f66a07d1f5d7",
+                "reference": "63707c0f452fb8faa3cffb197e50f66a07d1f5d7",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Unisharp\\Ckeditor\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Unisharp\\Ckeditor\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+",
+                "LGPL-2.1+",
+                "MPL-1.1+"
+            ],
+            "authors": [
+                {
+                    "name": "CKSource",
+                    "homepage": "http://cksource.com"
+                },
+                {
+                    "name": "TechGuy. (Composer Package Maintainer)",
+                    "homepage": "https://www.shiftechafrica.com"
+                }
+            ],
+            "description": "JavaScript WYSIWYG web text editor (for laravel).",
+            "homepage": "http://ckeditor.com",
+            "keywords": [
+                "CKEditor",
+                "editor",
+                "fckeditor",
+                "html",
+                "javascript",
+                "laravel",
+                "richtext",
+                "text",
+                "wysiwyg"
+            ],
+            "time": "2020-03-14T21:46:14+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
