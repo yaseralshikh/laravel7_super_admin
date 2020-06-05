@@ -28,4 +28,11 @@ class Product extends Model
         return $this->belongsTo(Category::class);
 
     }//end fo category
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class, 'product_order');
+
+    }//end of orders
+
 }
