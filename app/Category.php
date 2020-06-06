@@ -13,4 +13,8 @@ class Category extends Model
         return $this->hasMany(Product::class);
 
     }//end of products
+
+    public function getPaginatedProductsAttribute(){
+        return $this->products()->paginate(4);
+    }
 }
