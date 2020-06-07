@@ -56,10 +56,9 @@
                     @endforeach --}}
 
                     <!-- Jumbotron Header -->
-                    <header class="jumbotron my-4">
-                        <h1 class="display-3">Welcome!</h1>
+                    <header class="jumbotron">
                         <!-- Heading Row -->
-                        <div class="row align-items-center my-5">
+                        <div class="row align-items-center">
                             <div class="col-lg-7">
                             <img class="img-fluid rounded mb-4 mb-lg-0" style="width:100%" src="uploads/product_images/{{ $randomProducts[0]->image }}" alt="">
                             </div>

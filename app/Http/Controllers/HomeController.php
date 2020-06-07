@@ -27,8 +27,12 @@ class HomeController extends Controller
     {
         $randomProducts = DB::table('products')->inRandomOrder()->get();
 
-        $categories = Category::with('products')->latest()->get();
+        $categories = Category::when($request->id, function ($q) use ($request) {
+            return $q->where('id', $request->id );
+        })->latest()->get();
 
-        return view('home' , compact('categories', 'randomProducts'));
+        $nav_categories = Category::all();
+
+        return view('home' , compact('categories', 'nav_categories' , 'randomProducts'));
     }
 }
