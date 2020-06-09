@@ -48,6 +48,16 @@
                         </div>
 
                         <div class="form-group">
+                            <label>@lang('site.phone')</label>
+                            <input type="text" name="phone" class="form-control" value="{{ old('phone') }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>@lang('site.address')</label>
+                            <input type="text" name="address" class="form-control" value="{{ old('address') }}">
+                        </div>
+
+                        <div class="form-group">
                             <label>@lang('site.image')</label>
                             <input type="file" name="image" class="form-control image">
                         </div>

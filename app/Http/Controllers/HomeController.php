@@ -13,10 +13,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index');
+    }
 
     /**
      * Show the application dashboard.
@@ -27,12 +27,10 @@ class HomeController extends Controller
     {
         $randomProducts = DB::table('products')->inRandomOrder()->get();
 
-        $categories = Category::when($request->id, function ($q) use ($request) {
+        $categories = Category::with('products')->when($request->id, function ($q) use ($request) {
             return $q->where('id', $request->id );
         })->latest()->get();
 
-        $nav_categories = Category::all();
-
-        return view('home' , compact('categories', 'nav_categories' , 'randomProducts'));
+        return view('home' , compact('categories', 'randomProducts'));
     }
 }

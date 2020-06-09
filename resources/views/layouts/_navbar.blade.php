@@ -31,18 +31,17 @@
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         Categories
                     </a>
-                    
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            @foreach ( $nav_categories as $category )
-                            <a class="dropdown-item" href="{{ route('home',$category->id) }}">
-                                {{ $category->name }}
-                            </a>
-                            @endforeach
-                            <a class="dropdown-item" href="{{ route('home') }}">
-                                All
-                            </a>
-                        </div>
-                    
+                    <!-- Categories Links -->
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        @foreach ( $nav_categories as $category )
+                        <a class="dropdown-item" href="{{ route('home',$category->id) }}">
+                            {{ $category->name }}
+                        </a>
+                        @endforeach
+                        <a class="dropdown-item" href="{{ route('home') }}">
+                            All
+                        </a>
+                    </div>
                 </li>
                 
                 <li class="nav-item">
@@ -78,6 +77,10 @@
                     </li>
                 @endguest
             </ul>
+            <form class="form-inline my-2 my-lg-0" action="{{ route('home') }}" method="get">
+                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0"  type="submit">Search</button>
+            </form>
         </div>
     </div>
 </nav>

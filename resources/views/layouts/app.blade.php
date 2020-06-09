@@ -25,6 +25,7 @@
         <main>
             @yield('content')
         </main>
+        <!-- Navbar -->
         @include('layouts._navbar')
     </div>
 

@@ -52,6 +52,8 @@ class UserController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|unique:users',
+            'phone' => 'required|digits_between:10,14',
+            'address' => 'required',
             'image' => 'image',
             'password' => 'required|confirmed',
             'permissions' => 'required|min:1'
@@ -96,6 +98,8 @@ class UserController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => ['required', Rule::unique('users')->ignore($user->id),],
+            'phone' => 'required|digits_between:10,14',
+            'address' => 'required',
             'image' => 'image',
             'permissions' => 'required|min:1'
         ]);

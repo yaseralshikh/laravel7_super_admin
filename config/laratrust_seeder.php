@@ -20,6 +20,7 @@ return [
             'users' => 'c,r,u,d',
         ],
         'admin' => [],
+        'client' => [],
     ],
 
     'permissions_map' => [
