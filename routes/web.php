@@ -21,3 +21,7 @@ Auth::routes();
 //Auth::routes(['register' => false]);
 
 Route::get('/{id?}', 'HomeController@index')->name('home');
+
+Route::post('search', 'HomeController@search_product')->name('search');
+
+

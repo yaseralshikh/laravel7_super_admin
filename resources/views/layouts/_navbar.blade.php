@@ -64,6 +64,10 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            @if (auth()->user()->hasRole('super_admin|admin'))
+                                <a class="dropdown-item" href="{{ route('dashboard.welcome') }}">Dashboard</a>
+                            @endif
+                            
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
@@ -77,8 +81,9 @@
                     </li>
                 @endguest
             </ul>
-            <form class="form-inline my-2 my-lg-0" action="{{ route('home') }}" method="get">
-                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+            <form class="form-inline my-2 my-lg-0" action="{{ route('search') }}" method="POST">
+                @csrf
+                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search" required  value="{{ request()->search }}">
                 <button class="btn btn-outline-success my-2 my-sm-0"  type="submit">Search</button>
             </form>
         </div>

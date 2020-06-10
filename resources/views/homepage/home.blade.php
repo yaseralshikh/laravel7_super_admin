@@ -55,25 +55,8 @@
 
                     @endforeach --}}
 
-                    <!-- Jumbotron Header -->
-                    <header class="jumbotron">
-                        <!-- Heading Row -->
-                        <div class="row align-items-center">
-                            <div class="col-lg-7">
-                            <img class="img-fluid rounded mb-4 mb-lg-0" style="width:100%" src="uploads/product_images/{{ $randomProducts[0]->image }}" alt="">
-                            </div>
-                            <!-- /.col-lg-8 -->
-                            <div class="col-lg-5">
-                            <h1 class="font-weight-light">{{ $randomProducts[0]->name}}</h1>
-                            <p>{!!  $randomProducts[0]->description !!}</p>
-                            <p class="card-text list-group-item">Price : {{ $randomProducts[0]->sale_price }} $</p>
-                            <p class="card-text list-group-item">Stock : {{ $randomProducts[0]->stock }}</p>
-                            <a class="btn btn-primary" href="#">Sale</a>
-                            </div>
-                            <!-- /.col-md-4 -->
-                        </div>
-                        <!-- /.row -->
-                    </header>
+                    <!-- Page slides -->
+                    @include('layouts._slides')
                     
                     <!-- Page Features -->
                     @foreach ($categories as $category)

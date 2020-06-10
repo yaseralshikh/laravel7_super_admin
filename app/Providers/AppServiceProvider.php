@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Category;
+use App\Product;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $categories = Category::all();
-        view()->share('nav_categories',$categories);
+        $products = Product::all();
+        //view()->share('nav_categories',$categories);
+        view()->share([
+            'nav_categories' => $categories,
+            'products' => $products,
+        ]);
     }
 }
