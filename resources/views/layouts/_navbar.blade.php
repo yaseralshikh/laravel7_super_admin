@@ -16,15 +16,9 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+                    <a class="nav-link" href="{{ route('home') }}">Home
                     <span class="sr-only">(current)</span>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
                 </li>
                 
                 <li class="nav-item dropdown">
@@ -35,9 +29,10 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         @foreach ( $nav_categories as $category )
                         <a class="dropdown-item" href="{{ route('home',$category->id) }}">
-                            {{ $category->name }}
+                            {{ ucfirst(trans($category->name)) }}
                         </a>
                         @endforeach
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('home') }}">
                             All
                         </a>
@@ -47,6 +42,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
@@ -64,8 +64,11 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('profile', auth()->user()->id ) }}">Profile</a>
+
                             @if (auth()->user()->hasRole('super_admin|admin'))
                                 <a class="dropdown-item" href="{{ route('dashboard.welcome') }}">Dashboard</a>
+                                <div class="dropdown-divider"></div>
                             @endif
                             
                             <a class="dropdown-item" href="{{ route('logout') }}"

@@ -23,5 +23,6 @@ Auth::routes();
 Route::get('/{id?}', 'HomeController@index')->name('home');
 
 Route::post('search', 'HomeController@search_product')->name('search');
+Route::get('profile/{id}', 'HomeController@profile')->name('profile');
 
 

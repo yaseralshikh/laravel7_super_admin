@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Product;
+use App\user;
 use DB;
 
 class HomeController extends Controller
@@ -14,10 +15,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth')->except('index');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index' , 'search_product']);
+    }
 
     /**
      * Show the application dashboard.
@@ -58,5 +59,19 @@ class HomeController extends Controller
         })->latest()->get();
         
         return view('homepage.search_product' , compact('products'));
+    }
+
+    public function profile($id)
+    {
+
+        $user = User::where('id', $id)->first();
+        
+        if (auth()->user()->id == $id) {
+            return view('homepage.profile' , compact('user'));
+        } else {
+            return abort(404); 
+        }
+        
+        
     }
 }
