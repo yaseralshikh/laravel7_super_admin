@@ -24,5 +24,8 @@ Route::get('/{id?}', 'HomeController@index')->name('home');
 
 Route::post('search', 'HomeController@search_product')->name('search');
 Route::get('profile/{id}', 'HomeController@profile')->name('profile');
+Route::get('profile/edit/{id}', 'HomeController@edit_profile')->name('edit_profile');
+Route::PUT('profile/edit/{id}', 'HomeController@update_profile')->name('update_profile');
+
 
 

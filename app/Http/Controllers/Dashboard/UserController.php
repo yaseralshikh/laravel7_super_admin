@@ -84,15 +84,13 @@ class UserController extends Controller
 
     }//end of store
 
-    public
-    function edit(User $user)
+    public function edit(User $user)
     {
         return view('dashboard.users.edit', compact('user'));
 
     }//end of user
 
-    public
-    function update(Request $request, User $user)
+    public function update(Request $request, User $user)
     {
         $request->validate([
             'first_name' => 'required',

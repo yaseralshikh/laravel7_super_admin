@@ -14,8 +14,8 @@
                 <h3><i class="fa fa-address-book" aria-hidden="true"></i> {{ $user->address }}</h3>
                 <h3 style="direction: ltr !important;"><i class="fa fa-envelope" aria-hidden="true"></i> {{ $user->email }}</h3>
 
-                @if (auth()->user()->hasRole('client') & $user->id == auth()->user()->id )
-                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
+                @if (auth()->user()->hasRole(['client','admin']) & $user->id == auth()->user()->id )
+                    <a href="{{ route('edit_profile' , $user->id ) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
                 @else
                     <a href="#" class="btn btn-primary btn-sm disabled"><i class="fa fa-edit"></i> @lang('site.edit')</a>
                 @endif
