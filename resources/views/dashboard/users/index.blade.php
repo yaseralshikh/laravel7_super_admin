@@ -55,6 +55,8 @@
                                 <th>#</th>
                                 <th>@lang('site.first_name')</th>
                                 <th>@lang('site.last_name')</th>
+                                <th>@lang('site.phone')</th>
+                                <th>@lang('site.address')</th>
                                 <th>@lang('site.email')</th>
                                 <th>@lang('site.image')</th>
                                 <th>@lang('site.action')</th>
@@ -67,6 +69,8 @@
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $user->first_name }}</td>
                                     <td>{{ $user->last_name }}</td>
+                                    <td>{{ $user->phone }}</td>
+                                    <td>{{ $user->address }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td><img src="{{ $user->image_path }}" style="width: 100px;" class="img-thumbnail" alt=""></td>
                                     <td>

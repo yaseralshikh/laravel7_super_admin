@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Client;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class ClientController extends Controller
 {
@@ -15,11 +18,16 @@ class ClientController extends Controller
      */
     public function index(Request $request)
     {
-        $clients = Client::when($request->search, function($q) use ($request){
+        $clients = User::whereRoleIs('client')->where(function ($q) use ($request) {
 
-            return $q->where('name', 'like', '%' . $request->search . '%')
+            return $q->when($request->search, function ($query) use ($request) {
+
+                return $query->where('first_name', 'like', '%' . $request->search . '%')
+                ->orWhere('last_name', 'like', '%' . $request->search . '%')
                 ->orWhere('phone', 'like', '%' . $request->search . '%')
                 ->orWhere('address', 'like', '%' . $request->search . '%');
+
+            });
 
         })->latest()->paginate(5);
 
@@ -46,16 +54,31 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'phone' => 'required|array|min:1',
-            'phone.0' => 'required',
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'phone' => 'required|digits_between:10,14',
             'address' => 'required',
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
 
-        $request_data = $request->all();
-        $request_data['phone'] = array_filter($request->phone);
+        $request_data = $request->except(['password', 'password_confirmation', 'image']);
+        $request_data['password'] = bcrypt($request->password);
 
-        Client::create($request_data);
+        if ($request->image) {
+
+            Image::make($request->image)
+                ->resize(300, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })
+                ->save(public_path('uploads/user_images/' . $request->image->hashName()));
+
+            $request_data['image'] = $request->image->hashName();
+
+        }//end of if
+
+        $user = User::create($request_data);
+        $user->attachRole('client');
 
         session()->flash('success', __('site.added_successfully'));
         return redirect()->route('dashboard.clients.index');
@@ -68,7 +91,7 @@ class ClientController extends Controller
      * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function show(Client $client)
+    public function show(User $client)
     {
         //
     }
@@ -79,7 +102,7 @@ class ClientController extends Controller
      * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit(User $client)
     {
         return view('dashboard.clients.edit', compact('client'));
 
@@ -92,17 +115,36 @@ class ClientController extends Controller
      * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, User $client)
     {
         $request->validate([
-            'name' => 'required',
-            'phone' => 'required|array|min:1',
-            'phone.0' => 'required',
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'phone' => 'required|digits_between:10,14',
             'address' => 'required',
+            'email' => ['required', Rule::unique('users')->ignore($client->id),],
+            'image' => 'image',
         ]);
 
-        $request_data = $request->all();
-        $request_data['phone'] = array_filter($request->phone);
+        $request_data = $request->except('image');
+
+        if ($request->image) {
+
+            if ($client->image != 'default.png') {
+
+                Storage::disk('public_uploads')->delete('/user_images/' . $client->image);
+
+            }//end of inner if
+
+            Image::make($request->image)
+                ->resize(300, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })
+                ->save(public_path('uploads/user_images/' . $request->image->hashName()));
+
+            $request_data['image'] = $request->image->hashName();
+
+        }//end of external if
 
         $client->update($request_data);
         session()->flash('success', __('site.updated_successfully'));
@@ -116,7 +158,7 @@ class ClientController extends Controller
      * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy(User $client)
     {
         $client->delete();
         session()->flash('success', __('site.deleted_successfully'));

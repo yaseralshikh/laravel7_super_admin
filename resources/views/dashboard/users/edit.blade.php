@@ -43,6 +43,16 @@
                         </div>
 
                         <div class="form-group">
+                            <label>@lang('site.phone')</label>
+                            <input type="text" name="phone" class="form-control" value="{{ $user->phone }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>@lang('site.address')</label>
+                            <input type="text" name="address" class="form-control" value="{{ $user->address }}">
+                        </div>
+
+                        <div class="form-group">
                             <label>@lang('site.email')</label>
                             <input type="email" name="email" class="form-control" value="{{ $user->email }}">
                         </div>

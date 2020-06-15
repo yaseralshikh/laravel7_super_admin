@@ -51,7 +51,7 @@ class UserController extends Controller
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'phone' => 'required|numeric|between:10,14',
+            'phone' => 'required|digits_between:10,14',
             'address' => 'required',
             'email' => 'required|unique:users',
             'image' => 'image',
@@ -97,6 +97,8 @@ class UserController extends Controller
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
+            'phone' => 'required|digits_between:10,14',
+            'address' => 'required',
             'email' => ['required', Rule::unique('users')->ignore($user->id),],
             'image' => 'image',
             'permissions' => 'required|min:1'

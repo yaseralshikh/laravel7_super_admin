@@ -24,26 +24,43 @@
 
                     @include('partials._errors')
 
-                    <form action="{{ route('dashboard.clients.update', $client->id) }}" method="post">
+                    <form action="{{ route('dashboard.clients.update', $client->id) }}" method="post" enctype="multipart/form-data">
 
                         {{ csrf_field() }}
                         {{ method_field('put') }}
 
                         <div class="form-group">
-                            <label>@lang('site.name')</label>
-                            <input type="text" name="name" class="form-control" value="{{ $client->name }}">
+                            <label>@lang('site.first_name')</label>
+                            <input type="text" name="first_name" class="form-control" value="{{ $client->first_name }}">
                         </div>
 
-                        @for ($i = 0; $i < 2; $i++)
-                            <div class="form-group">
-                                <label>@lang('site.phone')</label>
-                                <input type="text" name="phone[]" class="form-control" value="{{ $client->phone[$i] ?? '' }}">
-                            </div>
-                        @endfor
+                        <div class="form-group">
+                            <label>@lang('site.last_name')</label>
+                            <input type="text" name="last_name" class="form-control" value="{{ $client->last_name }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>@lang('site.phone')</label>
+                            <input type="text" name="phone" class="form-control" value="{{ $client->phone }}">
+                        </div>
 
                         <div class="form-group">
                             <label>@lang('site.address')</label>
                             <textarea name="address" class="form-control">{{ $client->address }}</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>@lang('site.email')</label>
+                            <input type="email" name="email" class="form-control" value="{{ $client->email }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>@lang('site.image')</label>
+                            <input type="file" name="image" class="form-control image">
+                        </div>
+
+                        <div class="form-group">
+                            <img src="{{ $client->image_path }}" style="width: 100px" class="img-thumbnail image-preview" alt="">
                         </div>
 
                         <div class="form-group">
