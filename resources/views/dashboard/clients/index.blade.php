@@ -53,7 +53,8 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>@lang('site.name')</th>
+                                <th>@lang('site.first_name')</th>
+                                <th>@lang('site.last_name')</th>
                                 <th>@lang('site.phone')</th>
                                 <th>@lang('site.address')</th>
                                 <th>@lang('site.add_order')</th>
@@ -65,7 +66,8 @@
                             @foreach ($clients as $index=>$client)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-                                    <td>{{ $client->name }}</td>
+                                    <td>{{ $client->first_name }}</td>
+                                    <td>{{ $client->last_name }}</td>
                                     <td>{{ is_array($client->phone) ? implode($client->phone, '-') : $client->phone }}</td>
                                     <td>{{ $client->address }}</td>
                                     <td>
