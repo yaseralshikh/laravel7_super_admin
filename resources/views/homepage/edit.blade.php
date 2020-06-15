@@ -13,7 +13,7 @@
             </div>
 
             <!-- Page Content -->
-            <div class="container" dir="rtl">
+            <div class="container">
                 <div class="card">
                     <div class="card-header">
                         <h3>@lang('site.edit')</h3>

@@ -60,36 +60,38 @@
                 @include('layouts._slides')
                 
                 <!-- Page Features -->
-                @foreach ($categories as $category)
-                    <div class="card mt-2">
-                        <div class="card-header text-center" style="background-color:rgb(229, 242, 250)">
-                            <h3><b>{{ ucfirst(trans($category->name)) }}</b> <i class="fa fa-folder-open" aria-hidden="true"></i></h3>
+                @if($categories->count() > 0)
+                    @foreach ($categories as $category)
+                        <div class="card mt-2">
+                            <div class="card-header text-center" style="background-color:rgb(229, 242, 250)">
+                                <h3><b>{{ ucfirst(trans($category->name)) }}</b> <i class="fa fa-folder-open" aria-hidden="true"></i></h3>
+                            </div>
+                            <div class="card-body">
+                                @if ($category->products->count() > 0)
+                                    <div class="row text-center">
+                                        @foreach ($category->PaginatedProducts as $product)
+                                            <div class="col-lg-3 col-md-6 mb-4">
+                                                <div class="card h-100">
+                                                <img class="card-img-top mx-auto" src="{{ $product->image_path }}" alt="">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">{{ $product->name }}</h4>
+                                                    <p class="card-text">{!! $product->description !!}</p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <p class="card-text list-group-item">Price : {{ $product->sale_price }} $</p>
+                                                    <p class="card-text list-group-item">Stock : {{ $product->stock }}</p>
+                                                    <a href="#" class="btn btn-primary btn-lg btn-block">sale</a>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    <!-- /.row -->
+                                @endif
+                            </div>
                         </div>
-                        <div class="card-body">
-                            @if ($category->products->count() > 0)
-                                <div class="row text-center">
-                                    @foreach ($category->PaginatedProducts as $product)
-                                        <div class="col-lg-3 col-md-6 mb-4">
-                                            <div class="card h-100">
-                                            <img class="card-img-top mx-auto" src="{{ $product->image_path }}" alt="">
-                                            <div class="card-body">
-                                                <h4 class="card-title">{{ $product->name }}</h4>
-                                                <p class="card-text">{!! $product->description !!}</p>
-                                            </div>
-                                            <div class="card-footer">
-                                                <p class="card-text list-group-item">Price : {{ $product->sale_price }} $</p>
-                                                <p class="card-text list-group-item">Stock : {{ $product->stock }}</p>
-                                                <a href="#" class="btn btn-primary btn-lg btn-block">sale</a>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                                <!-- /.row -->
-                            @endif
-                        </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                @endif
                 {{ $category->PaginatedProducts->links() }}
             </div>
             <!-- /.container -->
