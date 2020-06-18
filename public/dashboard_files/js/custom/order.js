@@ -50,7 +50,7 @@ $(document).ready(function () {
 
         var quantity = Number($(this).val()); //2
         var unitPrice = parseFloat($(this).data('price').replace(/,/g, '')); //150
-        console.log(unitPrice);
+        //console.log(unitPrice);
         $(this).closest('tr').find('.product-price').html($.number(quantity * unitPrice, 2));
         calculateTotal();
 

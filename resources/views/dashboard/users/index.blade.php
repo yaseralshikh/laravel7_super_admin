@@ -9,7 +9,7 @@
             <h1>@lang('site.users')</h1>
 
             <ol class="breadcrumb">
-                <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
+                <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
                 <li class="active">@lang('site.users')</li>
             </ol>
         </section>
@@ -50,7 +50,7 @@
 
                         <table class="table table-hover">
 
-                            <thead>
+                            <thead class="bg-info">
                             <tr>
                                 <th>#</th>
                                 <th>@lang('site.first_name')</th>
@@ -72,7 +72,7 @@
                                     <td>{{ $user->phone }}</td>
                                     <td>{{ $user->address }}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td><img src="{{ $user->image_path }}" style="width: 100px;" class="img-thumbnail" alt=""></td>
+                                    <td><img src="{{ $user->image_path }}" style="width: 50px;" class="img-thumbnail" alt=""></td>
                                     <td>
                                         @if (auth()->user()->hasPermission('update_users'))
                                             <a href="{{ route('dashboard.users.edit', $user->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
