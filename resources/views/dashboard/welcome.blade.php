@@ -18,7 +18,7 @@
             <div class="row">
 
                 {{-- categories--}}
-                <div class="col-lg-3 col-xs-6">
+                <div class="col-lg-2 col-xs-6">
                     <div class="small-box bg-aqua">
                         <div class="inner">
                             <h3>{{ $categories_count }}</h3>
@@ -33,7 +33,7 @@
                 </div>
 
                 {{--products--}}
-                <div class="col-lg-3 col-xs-6">
+                <div class="col-lg-2 col-xs-6">
                     <div class="small-box bg-green">
                         <div class="inner">
                             <h3>{{ $products_count }}</h3>
@@ -48,7 +48,7 @@
                 </div>
 
                 {{--clients--}}
-                <div class="col-lg-3 col-xs-6">
+                <div class="col-lg-2 col-xs-6">
                     <div class="small-box bg-red">
                         <div class="inner">
                             <h3>{{ $clients_count }}</h3>
@@ -62,8 +62,23 @@
                     </div>
                 </div>
 
+                {{--orders--}}
+                <div class="col-lg-2 col-xs-6">
+                    <div class="small-box bg-primary">
+                        <div class="inner">
+                            <h3>{{ $orders_count }}</h3>
+
+                            <p>@lang('site.orders')</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-list-ol"></i>
+                        </div>
+                        <a href="{{ route('dashboard.orders.index') }}" class="small-box-footer">@lang('site.read') <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
                 {{--users--}}
-                <div class="col-lg-3 col-xs-6">
+                <div class="col-lg-2 col-xs-6">
                     <div class="small-box bg-yellow">
                         <div class="inner">
                             <h3>{{ $users_count }}</h3>

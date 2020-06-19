@@ -13,7 +13,7 @@ return [
     'search' => 'بحث',
     'show' => 'عرض',
     'loading' => 'جاري التحميل',
-    'print' => 'طبع',
+    'print' => 'طباعة',
 
     'confirm_delete' => 'تاكيد الحذف',
     'yes' => 'نعم',
@@ -68,6 +68,7 @@ return [
     'sale_price' => 'سعر البيع',
     'stock' => 'المخزن',
     'profit_percent' => 'المكسب',
+    'display' => 'الحالة',
 
     'ar' => [
         'name' => 'الاسم بالغه العربيه',

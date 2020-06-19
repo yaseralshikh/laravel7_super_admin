@@ -54,6 +54,7 @@
                                                             <th>@lang('site.name')</th>
                                                             <th>@lang('site.stock')</th>
                                                             <th>@lang('site.price')</th>
+                                                            <th class="text-center">@lang('site.display')</th>
                                                             <th>@lang('site.add')</th>
                                                         </tr>
 
@@ -62,6 +63,11 @@
                                                                 <td>{{ $product->name }}</td>
                                                                 <td>{{ $product->stock }}</td>
                                                                 <td>{{ $product->sale_price }}</td>
+                                                                @if ($product->display == 1)
+                                                                    <td class="text-center"><i class="fa fa-check-square-o" style="color:green;" aria-hidden="true"></i></td>
+                                                                @else
+                                                                    <td class="text-center"><i class="fa fa-times-circle" style="color:red;" aria-hidden="true"></i></td>
+                                                                @endif
                                                                 <td>
                                                                     <a href=""
                                                                        id="product-{{ $product->id }}"
@@ -182,11 +188,27 @@
 
                                                 <div class="panel-body">
 
-                                                    <ul class="list-group">
-                                                        @foreach ($order->products as $product)
-                                                            <li class="list-group-item">{{ $product->name }}</li>
-                                                        @endforeach
-                                                    </ul>
+                                                    <table  class="table table-hover">
+                                                        <thead class="bg-warning">
+                                                            <tr>
+                                                                <th>@lang('site.product')</th>
+                                                                <th class="text-center">@lang('site.category')</th>
+                                                                <th class="text-center">@lang('site.quantity')</th>
+                                                                <th class="text-center">@lang('site.image')</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($order->products as $product)
+                                                                <tr>
+                                                                    <td>{{ $product->name }}</td>
+                                                                    <td class="text-center">{{ $product->category->name }}</td>
+                                                                    <td class="text-center">{{ $product->pivot->quantity }}</td>
+                                                                    <td class="text-center"><img src="{{ $product->image_path }}" style="width: 50px"  class="img-thumbnail" alt=""></td>
+                                                                </tr>
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                    <h4 class="text-red">@lang('site.total') : {{ $order->total_price }} $</h4>
 
                                                 </div><!-- end of panel body -->
 

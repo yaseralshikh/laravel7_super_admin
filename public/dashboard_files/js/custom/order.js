@@ -73,6 +73,7 @@ $(document).ready(function () {
                 $('#loading').css('display', 'none');
                 $('#order-product-list').empty();
                 $('#order-product-list').append(data);
+                console.log(data);
 
             }
         })

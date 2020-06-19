@@ -70,6 +70,7 @@
                                 <th>@lang('site.sale_price')</th>
                                 <th>@lang('site.profit_percent') %</th>
                                 <th>@lang('site.stock')</th>
+                                <th>@lang('site.display')</th>
                                 <th>@lang('site.action')</th>
                             </tr>
                             </thead>
@@ -86,6 +87,11 @@
                                     <td>{{ $product->sale_price }}</td>
                                     <td>{{ $product->profit_percent }} %</td>
                                     <td>{{ $product->stock }}</td>
+                                    @if ($product->display == 1)
+                                         <td><i class="fa fa-check-square-o" style="color:green;" aria-hidden="true"></i></td>
+                                    @else
+                                        <td><i class="fa fa-times-circle" style="color:red;" aria-hidden="true"></i></td>
+                                    @endif
                                     <td>
                                         @if (auth()->user()->hasPermission('update_products'))
                                             <a href="{{ route('dashboard.products.edit', $product->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>

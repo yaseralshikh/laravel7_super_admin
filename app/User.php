@@ -44,11 +44,21 @@ class User extends Authenticatable
 
     }//end of get last name
 
+    public function getFullNameAttribute() {
+        return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
+    }//end of get Full Name
+
     public function getImagePathAttribute()
     {
         return asset('uploads/user_images/' . $this->image);
 
     }//end of get image path
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+
+    }//end of orders
 
     /**
      * The attributes that should be cast to native types.

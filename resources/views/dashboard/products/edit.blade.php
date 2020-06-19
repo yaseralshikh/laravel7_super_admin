@@ -74,6 +74,11 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="form-check-label">@lang('site.display')</label>
+                            <input type="checkbox" name="display" class="form-check-input" value="{{ $product->display }}" @if ( $product->display ) === 1 checked @endif>
+                        </div>
+
+                        <div class="form-group">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.edit')</button>
                         </div>
 

@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->double('purchase_price', 8, 2);
             $table->double('sale_price', 8, 2);
             $table->integer('stock');
+            $table->boolean('display')->default(1);
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

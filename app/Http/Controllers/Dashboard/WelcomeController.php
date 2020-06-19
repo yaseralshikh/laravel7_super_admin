@@ -17,7 +17,8 @@ class WelcomeController extends Controller
     {
         $categories_count = Category::count();
         $products_count = Product::count();
-        $clients_count = Client::count();
+        $clients_count =  User::whereRoleIs('client')->count();
+        $orders_count = Order::count();
         $users_count = User::whereRoleIs('admin')->count();
 
         $sales_data = Order::select(
@@ -26,7 +27,7 @@ class WelcomeController extends Controller
             DB::raw('SUM(total_price) as sum')
         )->groupBy('month')->get();
 
-        return view('dashboard.welcome', compact('categories_count', 'products_count', 'clients_count', 'users_count', 'sales_data'));
+        return view('dashboard.welcome', compact('categories_count', 'products_count', 'clients_count', 'orders_count', 'users_count', 'sales_data'));
     
     }//end of index
     

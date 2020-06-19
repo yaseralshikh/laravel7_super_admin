@@ -75,6 +75,12 @@ class ProductController extends Controller
 
         }//end of if
 
+        if($request->get('display') == null){
+            $request_data['display'] = 0;
+        } else {
+            $request_data['display'] = 1;
+        }//end of if
+
         Product::create($request_data);
         session()->flash('success', __('site.added_successfully'));
         return redirect()->route('dashboard.products.index');
@@ -140,6 +146,12 @@ class ProductController extends Controller
 
         }//end of if
         
+        if($request->get('display') == null){
+            $request_data['display'] = 0;
+        } else {
+            $request_data['display'] = 1;
+        }//end of if
+
         $product->update($request_data);
         session()->flash('success', __('site.updated_successfully'));
         return redirect()->route('dashboard.products.index');
