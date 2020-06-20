@@ -15,6 +15,12 @@ class Product extends Model
 
     }//end of image path attribute
 
+    public function getBannerPathAttribute()
+    {
+        return asset('uploads/product_images/' . $this->banner_image);
+
+    }//end of banner image path attribute
+
     public function getProfitPercentAttribute()
     {
         $profit = $this->sale_price - $this->purchase_price;

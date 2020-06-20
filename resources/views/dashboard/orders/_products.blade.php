@@ -1,6 +1,19 @@
 <div id="print-area">
     <table class="table table-hover table-bordered">
-
+        <thead>
+            <tr>
+                <th class="text-red">@lang('site.client_name')</th>
+                <th class="text-red">@lang('site.phone')</th>
+                <th class="text-red">@lang('site.address')</th>
+            </tr>
+        </thead>
+        <tbody>
+            <th>{{ $order->user->full_name }}</th>
+            <th>{{ is_array($order->user->phone) ? implode($order->user->phone, '-') : $order->user->phone }}</th>
+            <th>{{ $order->user->address }}</th>
+        </tbody>
+    </table>
+    <table class="table table-hover table-bordered">
         <thead class="bg-info">
         <tr>
             <th>@lang('site.name')</th>

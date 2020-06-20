@@ -59,6 +59,15 @@
                         </div>
 
                         <div class="form-group">
+                            <label>@lang('site.banner_image')</label>
+                            <input type="file" name="banner_image" class="form-control" onchange="document.getElementById('image-preview').src = window.URL.createObjectURL(this.files[0])">
+                        </div>
+
+                        <div class="form-group">
+                            <img src="{{ $product->banner_path }}" style="width: 100px" id="image-preview" class="img-thumbnail form-control-file" alt="">
+                        </div>
+
+                        <div class="form-group">
                             <label>@lang('site.purchase_price')</label>
                             <input type="number" name="purchase_price" step="0.01" class="form-control" value="{{ $product->purchase_price }}">
                         </div>

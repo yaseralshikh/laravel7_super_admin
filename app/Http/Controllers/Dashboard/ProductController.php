@@ -66,12 +66,20 @@ class ProductController extends Controller
         if ($request->image) {
 
             Image::make($request->image)
-                ->resize(300, null, function ($constraint) {
+                ->resize(500, null, function ($constraint) {
                     $constraint->aspectRatio();
                 })
                 ->save(public_path('uploads/product_images/' . $request->image->hashName()));
 
             $request_data['image'] = $request->image->hashName();
+
+        }//end of if
+
+        if ($request->banner_image) {
+
+            Image::make($request->banner_image)->save(public_path('uploads/product_images/' . $request->banner_image->hashName()));
+
+            $request_data['banner_image'] = $request->banner_image->hashName();
 
         }//end of if
 
@@ -137,12 +145,26 @@ class ProductController extends Controller
             }//end of if
 
             Image::make($request->image)
-                ->resize(300, null, function ($constraint) {
+                ->resize(500, null, function ($constraint) {
                     $constraint->aspectRatio();
                 })
                 ->save(public_path('uploads/product_images/' . $request->image->hashName()));
 
             $request_data['image'] = $request->image->hashName();
+
+        }//end of if
+
+        if ($request->banner_image) {
+
+            if ($product->banner_image != 'default_banner.png') {
+
+                Storage::disk('public_uploads')->delete('/product_images/' . $product->banner_image);
+                    
+            }//end of if
+
+            Image::make($request->banner_image)->save(public_path('uploads/product_images/' . $request->banner_image->hashName()));
+
+            $request_data['banner_image'] = $request->banner_image->hashName();
 
         }//end of if
         

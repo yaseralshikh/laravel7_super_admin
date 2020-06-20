@@ -22,6 +22,8 @@ Auth::routes();
 
 Route::get('/{id?}', 'HomeController@index')->name('home');
 
+Route::get('product/{id}', 'HomeController@show')->name('show_product');
+
 Route::post('search', 'HomeController@search_product')->name('search');
 Route::get('profile/{id}', 'HomeController@profile')->name('profile');
 Route::get('profile/edit/{id}', 'HomeController@edit_profile')->name('edit_profile');

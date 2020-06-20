@@ -63,7 +63,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>@lang('site.name')</th>
-                                <th>@lang('site.description')</th>
+                                {{-- <th>@lang('site.description')</th> --}}
                                 <th>@lang('site.category')</th>
                                 <th>@lang('site.image')</th>
                                 <th>@lang('site.purchase_price')</th>
@@ -80,7 +80,7 @@
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $product->name }}</td>
-                                    <td width="20%">{!! $product->description !!}</td>
+                                    {{-- <td width="20%">{!! $product->description !!}</td> --}}
                                     <td>{{ $product->category->name }}</td>
                                     <td><img src="{{ $product->image_path }}" style="width: 100px"  class="img-thumbnail" alt=""></td>
                                     <td>{{ $product->purchase_price }}</td>

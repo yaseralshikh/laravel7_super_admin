@@ -59,50 +59,51 @@
                 @endif
             </div>
         
-        <!-- Page Content -->
-        <div class="col-md-12">
-            <div class="container p-4">
-                <div class="col-md-12 p-3 mb-2 bg-primary border border-dark text-white rounded text-center">
-                    <h1>Search Products</h1>
+            <!-- Page Content -->
+            <div class="col-md-12">
+                <div class="container p-4">
+                    <div class="col-md-12 p-3 mb-2 bg-primary border border-dark text-white rounded text-center">
+                        <h1>Search Products</h1>
+                    </div>
+                    @if ($products->count() > 0)
+                        @foreach ($products as $product)
+                        <div class="card">
+                            <div class="row">
+                                <aside class="col-sm-5 border-right">
+                                    <article class="gallery-wrap"> 
+                                        <div class="img-big-wrap">
+                                            <div> <a href="#"><img class="rounded mx-auto d-block p-3 w-70" src="{{ $product->image_path }}"></a></div>
+                                        </div> <!-- slider-product.// -->
+                                    </article> <!-- gallery-wrap .end// -->
+                                </aside>
+                                <aside class="col-sm-7">
+                                    <article class="card-body p-5">
+                                        <h3 class="title mb-3 text-success">{{ ucfirst(trans($product->name)) }}</h3>
+                                        
+                                        <p class="price-detail-wrap"> 
+                                            <span class="price h3 text-danger"> 
+                                                <span class="currency">US $</span><span class="num">{{ $product->sale_price }}</span>
+                                            </span> 
+                                        </p> <!-- price-detail-wrap .// -->
+                                        <dl class="item-property">
+                                            <dt>Description</dt>
+                                            <dd><p>{!! $product->description !!}</p></dd>
+                                        </dl>
+                                        <dl class="param param-feature">
+                                            <dt>Stock</dt>
+                                            <dd>{{ $product->stock }}</dd>
+                                        </dl>  <!-- item-property-hor .// -->
+                                        <hr>
+                                        <a href="#" class="btn btn-lg btn-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </a>
+                                    </article> <!-- card-body.// -->
+                                </aside> <!-- col.// -->
+                            </div> <!-- row.// -->
+                        </div> <!-- card.// -->
+                        @endforeach
+                    @else
+                        <h1 class="border border-dark rounded text-center p-4">@lang('site.no_data_found') مطابقة</h1>   
+                    @endif
                 </div>
-                @if ($products->count() > 0)
-                    @foreach ($products as $product)
-                    <div class="card">
-                        <div class="row">
-                            <aside class="col-sm-5 border-right">
-                                <article class="gallery-wrap"> 
-                                    <div class="img-big-wrap">
-                                        <div> <a href="#"><img class="w-100" src="{{ $product->image_path }}"></a></div>
-                                    </div> <!-- slider-product.// -->
-                                </article> <!-- gallery-wrap .end// -->
-                            </aside>
-                            <aside class="col-sm-7">
-                                <article class="card-body p-5">
-                                    <h3 class="title mb-3 text-success">{{ ucfirst(trans($product->name)) }}</h3>
-                                    
-                                    <p class="price-detail-wrap"> 
-                                        <span class="price h3 text-danger"> 
-                                            <span class="currency">US $</span><span class="num">{{ $product->sale_price }}</span>
-                                        </span> 
-                                    </p> <!-- price-detail-wrap .// -->
-                                    <dl class="item-property">
-                                        <dt>Description</dt>
-                                        <dd><p>{!! $product->description !!}</p></dd>
-                                    </dl>
-                                    <dl class="param param-feature">
-                                        <dt>Stock</dt>
-                                        <dd>{{ $product->stock }}</dd>
-                                    </dl>  <!-- item-property-hor .// -->
-                                    <hr>
-                                    <a href="#" class="btn btn-lg btn-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </a>
-                                </article> <!-- card-body.// -->
-                            </aside> <!-- col.// -->
-                        </div> <!-- row.// -->
-                    </div> <!-- card.// -->
-                    @endforeach
-                @else
-                    <h1 class="border border-dark rounded text-center p-4">@lang('site.no_data_found') مطابقة</h1>   
-                @endif
             </div>
         </div>
     </div>

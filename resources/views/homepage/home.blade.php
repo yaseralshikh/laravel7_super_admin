@@ -63,32 +63,32 @@
                 @if($categories->count() > 0)
                     @foreach ($categories as $category)
                         <div class="card mt-2">
-                            <div class="card-header text-center" style="background-color:rgb(229, 242, 250)">
-                                <h3><b>{{ ucfirst(trans($category->name)) }}</b> <i class="fa fa-folder-open" aria-hidden="true"></i></h3>
-                            </div>
-                            <div class="card-body">
-                                @if ($category->products->count() > 0)
-                                    <div class="row text-center">
-                                        @foreach ($category->PaginatedProducts as $product)
-                                            <div class="col-lg-3 col-md-6 mb-4">
-                                                <div class="card h-100">
-                                                <img class="card-img-top mx-auto" src="{{ $product->image_path }}" alt="">
-                                                <div class="card-body">
+                            @if ($category->products->count() > 0)
+                                <div class="card-header text-center" style="background-color:rgb(229, 242, 250)">
+                                    <h3><b>{{ ucfirst(trans($category->name)) }}</b> <i class="fa fa-folder-open" aria-hidden="true"></i></h3>
+                                </div>
+                                <div class="row text-center">
+                                    @foreach ($category->PaginatedProducts as $product)
+                                        <div class="col-lg-3 col-md-6 mb-4">
+                                            <div class="card h-100 m-3">
+                                                <div class="card-header text-center" style="background-color: rgb(247, 230, 174)">
                                                     <h4 class="card-title">{{ $product->name }}</h4>
-                                                    <p class="card-text">{!! $product->description !!}</p>
+                                                </div>
+                                                <a href="{{ route('show_product', $product->id ) }}"><img class="card-img-top mx-auto mt-3 w-60" src="{{ $product->image_path }}" alt=""></a>
+                                                <div class="card-body" style="margin-top: 10px;">
+                                                    <p class="card-text">{!!  Str::limit($product->description, 200, $end = ' ... ') !!} @if (Str::length($product->description) > 200) <a href='{{ route('show_product' , $product->id ) }}' class='fa fa-hand-o-left'> المزيد</a> @endif </p>
                                                 </div>
                                                 <div class="card-footer">
                                                     <p class="card-text list-group-item">Price : {{ $product->sale_price }} $</p>
                                                     <p class="card-text list-group-item">Stock : {{ $product->stock }}</p>
                                                     <a href="#" class="btn btn-primary btn-lg btn-block">sale</a>
                                                 </div>
-                                                </div>
                                             </div>
-                                        @endforeach
-                                    </div>
-                                    <!-- /.row -->
-                                @endif
-                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <!-- /.row -->
+                            @endif
                         </div>
                     @endforeach
                 @endif

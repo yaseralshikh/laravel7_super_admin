@@ -70,6 +70,10 @@ class HomeController extends Controller
 
     }//end of edit_profile
 
+    public function show($id){
+        return view('homepage.show_product', ['product' => Product::findOrFail($id)]);
+    }
+
     public function update_profile(Request $request, $id)
     {
         $user = User::find($id);

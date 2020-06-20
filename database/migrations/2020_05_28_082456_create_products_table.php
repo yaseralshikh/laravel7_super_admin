@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('image')->default('default.png');
+            $table->string('banner_image')->default('default_banner.png');
             $table->double('purchase_price', 8, 2);
             $table->double('sale_price', 8, 2);
             $table->integer('stock');
