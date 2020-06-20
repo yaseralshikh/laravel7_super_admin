@@ -13,11 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     return redirect()->route('dashboard.welcome');
 });
 
-//Auth::routes(['register' => false]);
 Auth::routes();
+//Auth::routes(['register' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/{id?}', 'HomeController@index')->name('home');
+
+Route::post('search', 'HomeController@search_product')->name('search');
+Route::get('profile/{id}', 'HomeController@profile')->name('profile');
+Route::get('profile/edit/{id}', 'HomeController@edit_profile')->name('edit_profile');
+Route::PUT('profile/edit/{id}', 'HomeController@update_profile')->name('update_profile');
