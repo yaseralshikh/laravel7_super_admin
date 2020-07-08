@@ -12,6 +12,7 @@ use Log;
 
 class CartController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -115,6 +116,7 @@ class CartController extends Controller
     }
 
     public function addToCart(Product $product){
+        
         if (session()->has('cart')) {
             $cart = new Cart(session()->get('cart'));
         } else {

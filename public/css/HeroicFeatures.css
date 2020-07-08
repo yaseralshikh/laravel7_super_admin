@@ -36,12 +36,10 @@ hr.custom-hr {
     opacity: 0.5;
 }
 
-.Footer-about {
-    color: #FF0000 !important;
-}
+
 
 .footer-contaent {
-    direction: ltr !important;
+    direction: rtl !important;
 }
 
 .contact-us {

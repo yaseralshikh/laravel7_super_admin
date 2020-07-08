@@ -111,6 +111,8 @@ $(document).ready(function () {
             },
             error: function(request) {
                 console.log('Error Message : ' + request.responseJSON.message);
+                //window.location.href = '/login';
+                $(location).attr('href','/login');
             }
         });
 
