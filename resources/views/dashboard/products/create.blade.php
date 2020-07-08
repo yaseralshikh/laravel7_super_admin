@@ -66,6 +66,7 @@
                         <div class="form-group">
                             <label>@lang('site.image')</label>
                             <input type="file" name="image" class="form-control image">
+                            <small id="banner_imageHelp" class="form-text text-muted">@lang('site.image_attributes')</small>
                         </div>
 
                         <div class="form-group">
@@ -75,6 +76,7 @@
                         <div class="form-group">
                             <label>@lang('site.banner_image')</label>
                             <input type="file" name="banner_image" class="form-control" onchange="document.getElementById('image-preview').src = window.URL.createObjectURL(this.files[0])">
+                            <small id="banner_imageHelp" class="form-text text-muted">@lang('site.banner_attributes')</small>
                         </div>
 
                         <div class="form-group">

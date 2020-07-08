@@ -14,7 +14,7 @@ Route::prefix('dashboard')->name('dashboard.')->middleware(['auth','role:super_a
 
     //client routes
     Route::resource('clients', 'ClientController')->except(['show']);
-    Route::resource('clients.orders', 'Client\OrderController')->except(['show']);
+    Route::resource('clients.orders', 'Client\OrderController');
 
     //order routes
     Route::resource('orders', 'OrderController');

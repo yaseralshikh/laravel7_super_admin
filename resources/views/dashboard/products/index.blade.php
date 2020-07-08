@@ -87,7 +87,7 @@
                                     <td>{{ $product->sale_price }}</td>
                                     <td>{{ $product->profit_percent }} %</td>
                                     <td>{{ $product->stock }}</td>
-                                    @if ($product->display == 1)
+                                    @if ($product->display == 1 & $product->stock > 0 )
                                          <td><i class="fa fa-check-square-o" style="color:green;" aria-hidden="true"></i></td>
                                     @else
                                         <td><i class="fa fa-times-circle" style="color:red;" aria-hidden="true"></i></td>

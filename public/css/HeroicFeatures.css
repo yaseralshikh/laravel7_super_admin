@@ -1,0 +1,52 @@
+body {
+    padding-top: 56px;
+}
+
+p {
+    text-align: justify !important;
+    direction: rtl !important;
+}
+
+hr.custom-hr {
+    border-top: 1px solid white;
+}
+
+.btn-fb {
+    color: #4267B2 !important;
+    ;
+}
+
+.btn-fb:hover {
+    opacity: 0.5;
+}
+
+.btn-tw {
+    color: #1DA1F2 !important;
+}
+
+.btn-tw:hover {
+    opacity: 0.5;
+}
+
+.btn-youtube {
+    color: #FF0000 !important;
+}
+
+.btn-youtube:hover {
+    opacity: 0.5;
+}
+
+.Footer-about {
+    color: #FF0000 !important;
+}
+
+.footer-contaent {
+    direction: ltr !important;
+}
+
+.contact-us {
+    direction: rtl !important;
+    text-align: center !important;
+    color: white !important;
+}
+

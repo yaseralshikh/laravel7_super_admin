@@ -2,6 +2,13 @@
 
 @section('content')
 
+    {{-- @if(session('success'))
+        <div class="alert alert-success" dir="rtl">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ session('success') }}
+        </div>
+    @endif --}}
+
     <div class="container bg-white mt-3 mb-3 border border-dark">
         <div class="row p-5">
             <div class="col-6 text-center">

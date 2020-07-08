@@ -7,13 +7,14 @@ $(document).ready(function () {
         var name = $(this).data('name');
         var id = $(this).data('id');
         var price = $.number($(this).data('price'), 2);
+        var stock = $(this).data('stock');
 
         $(this).removeClass('btn-success').addClass('btn-default disabled');
 
         var html =
             `<tr>
                 <td>${name}</td>
-                <td><input type="number" name="products[${id}][quantity]" data-price="${price}" class="form-control input-sm product-quantity" min="1" value="1"></td>
+                <td><input type="number" name="products[${id}][quantity]" data-price="${price}" class="form-control input-sm product-quantity" min="1" max="${stock}" value="1"></td>
                 <td class="product-price">${price}</td>               
                 <td><button class="btn btn-danger btn-sm remove-product-btn" data-id="${id}"><span class="fa fa-trash"></span></button></td>
             </tr>`;
@@ -83,7 +84,16 @@ $(document).ready(function () {
     //print order
     $(document).on('click', '.print-btn', function() {
 
-        $('#print-area').printThis();
+        $('#print-area').printThis({
+            loadCSS: "direction: rtl;",
+            importCSS: true,  
+            //header: "<h1 class='text-center text-red'>test</h1>",
+            footer: `
+                    <h4 class="pr-5 pt-5" style="direction: rtl;float: right;">امين الصندوق :</h4><br><br><hr>
+                    <h4 class="pr-5" style="direction: rtl;float: right;">التوقيع :</h4><br><br><hr>
+                    <h4 class="pr-5" style="direction: rtl;float: right;">ختم المؤسسة :</h4><br><br><hr>
+            `
+        });
 
     });//end of click function
 

@@ -2,15 +2,21 @@
     <table class="table table-hover table-bordered">
         <thead>
             <tr>
-                <th class="text-red">@lang('site.client_name')</th>
-                <th class="text-red">@lang('site.phone')</th>
-                <th class="text-red">@lang('site.address')</th>
+                <td colspan="3">
+                    <h3 style="float:right; padding:15px;"><b>@lang('site.invoice')</b></h3>
+                    <img style="width: 30%; float:left; padding-top:20px;" src="{{ asset('uploads/laravel_logo.png') }}">
+                </td>
+            </tr>
+            <tr>
+                <th class="text-red text-center">@lang('site.client_name')</th>
+                <th class="text-red text-center">@lang('site.phone')</th>
+                <th class="text-red text-center">@lang('site.address')</th>
             </tr>
         </thead>
         <tbody>
-            <th>{{ $order->user->full_name }}</th>
-            <th>{{ is_array($order->user->phone) ? implode($order->user->phone, '-') : $order->user->phone }}</th>
-            <th>{{ $order->user->address }}</th>
+            <th class="text-center">{{ $order->user->full_name }}</th>
+            <th class="text-center">{{ is_array($order->user->phone) ? implode($order->user->phone, '-') : $order->user->phone }}</th>
+            <th class="text-center">{{ $order->user->address }}</th>
         </tbody>
     </table>
     <table class="table table-hover table-bordered">

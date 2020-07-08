@@ -63,7 +63,7 @@
                                                                 <td>{{ $product->name }}</td>
                                                                 <td>{{ $product->stock }}</td>
                                                                 <td>{{ number_format($product->sale_price, 2) }}</td>
-                                                                @if ($product->display == 1)
+                                                                @if ($product->display == 1 & $product->stock > 0 )
                                                                     <td class="text-center"><i class="fa fa-check-square-o" style="color:green;" aria-hidden="true"></i></td>
                                                                 @else
                                                                     <td class="text-center"><i class="fa fa-times-circle" style="color:red;" aria-hidden="true"></i></td>
@@ -74,6 +74,7 @@
                                                                        data-name="{{ $product->name }}"
                                                                        data-id="{{ $product->id }}"
                                                                        data-price="{{ $product->sale_price }}"
+                                                                       data-stock="{{ $product->stock }}"
                                                                        class="btn btn-success btn-sm add-product-btn">
                                                                         <i class="fa fa-plus"></i>
                                                                     </a>

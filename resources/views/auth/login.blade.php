@@ -36,11 +36,11 @@
 <div class="login-box">
 
     <div class="login-logo">
-        <a href="../../index2.html"><b>Admin</b>LTE</a>
+        <a href="/"><b>تسجيل</b> الدخول</a> <i class="fa fa-sign-in" aria-hidden="true"></i>
     </div><!-- end of login lgo -->
 
     <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        {{-- <p class="login-box-msg">Sign in to start your session</p> --}}
 
         <form action="{{ route('login') }}" method="post">
             {{ csrf_field() }}

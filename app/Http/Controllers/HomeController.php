@@ -30,6 +30,10 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+        // if (session('success')) {
+        //     toast(session('success'), 'success');
+        // }
+        
         $categories = Category::with('products')->when($request->id, function ($q) use ($request) {
             return $q->where('id', $request->id );
         })->latest()->get();
@@ -110,7 +114,7 @@ class HomeController extends Controller
         $user->update($request_data);
 
         session()->flash('success', __('site.updated_successfully'));
-        return view('homepage.profile' , compact('user'));
+        return redirect()->route('profile',$id);
 
     }//end of update
 

@@ -15,7 +15,7 @@ class OrderController extends Controller
             return $q->where('first_name', 'like', '%' . $request->search . '%')
                      ->orWhere('last_name', 'like', '%' . $request->search . '%');
 
-        })->paginate(5);
+        })->paginate(15);
 
         return view('dashboard.orders.index', compact('orders'));
 

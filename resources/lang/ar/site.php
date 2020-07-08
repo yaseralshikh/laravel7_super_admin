@@ -70,6 +70,8 @@ return [
     'profit_percent' => 'المكسب',
     'display' => 'الحالة',
     'banner_image' => 'صورة البنر',
+    'banner_attributes' => 'الابعاد المناسب للبنر الاعلاني 600×1800 بكسل',
+    'image_attributes' => 'الابعاد المناسب للصورة 400×400 بكسل',
 
     'ar' => [
         'name' => 'الاسم بالغه العربيه',
@@ -81,6 +83,26 @@ return [
         'description' => 'الوصف بالغه الانجليزيه',
     ],
 
+    'profile' => 'الملف الشخصي',
+    'admins_dashboard' => 'لوحة  تحكم المشرفين',
+    'logout' => 'خروج',
+    'shopping_cart' => 'السلة',
+    'your_ShoppingCart' => 'سلة مشترياتك',
     'add_to_cart' => 'اضف لعربة التسوق',
+    'cart_empty' => 'سلة المشتريات فارغة',
+    'finished_order' => 'إنهاء الطلب',
+    'no_client_orders' => 'لا يوجد أي طلبات سابقة',
+    'myOrders' => 'طلباتي', 
+    'invoice' => 'فاتورة',
+    'invoice_data' => 'تاريخ الشراء',
+    'invoice_price' => 'المبلغ',
+    'invoice_number' => 'رقم الفاتورة',
+
+    // Register
+    'Register' => 'تسجيل',
+    // navbar
+    'contact' => 'اتصل',
+    'about' => 'حول',
+    'login' => 'دخول',
 
 ];

@@ -40,7 +40,7 @@
                                         </span> 
                                     </p> <!-- price-detail-wrap .// -->
                                     <hr>
-                                    <a href="#" class="btn btn-lg btn-primary text-uppercase"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> @lang('site.add_to_cart')</a>
+                                    <a href="{{ route('cart.add', $product->id ) }}" class="btn btn-lg btn-primary text-uppercase"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> @lang('site.add_to_cart')</a>
                                 </article> <!-- card-body.// -->
                             </aside> <!-- col.// -->
                         </div> <!-- row.// -->

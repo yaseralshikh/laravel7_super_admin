@@ -10,8 +10,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-        {{-- <script src="{{ asset('js/bootstrap.min.js') }}" defer></script> --}}
+        <script src="{{ asset('js/app.js') }}"></script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -22,30 +21,64 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         {{-- <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"> --}}
-        <link href="{{ asset('css/heroic-features.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/HeroicFeatures.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('dashboard_files/css/rtl.css') }}">
 
         <style>
             body, h1, h2, h3, h4, h5, h6 {
                 font-family: 'Cairo', sans-serif !important;
             }
         </style>
+
+        {{--noty--}}
+        <link rel="stylesheet" href="{{ asset('dashboard_files/plugins/noty/noty.css') }}">
+        <script src="{{ asset('dashboard_files/plugins/noty/noty.min.js') }}"></script>
+
     </head>
     <body>
         <div id="app">
             <main>
                 @yield('content')
             </main>
+
             <!-- Navbar -->
             @include('layouts._navbar')
+
+            <!-- partials session -->
+            @include('partials._session')
+
+            <!-- sweet alert -->
+             {{-- @include('sweetalert::alert') --}}
+
         </div>
 
         <!-- Footer -->
-        <footer class="py-5 bg-dark">
-            <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
-            </div>
-            <!-- /.container -->
-        </footer>
+        @include('layouts._footer')
+
+        {{--<!-- jQuery 3 -->--}}
+        {{-- <script src="{{ asset('js/jquery.min.js') }}"></script> --}}
+
+        <script src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
+
+        {{--jquery number--}}
+        <script src="{{ asset('dashboard_files/js/jquery.number.min.js') }}"></script>
+
+        {{--print this--}}
+        <script src="{{ asset('dashboard_files/js/printThis.js') }}"></script>
+
+        {{--order js--}}
+        <script src="{{ asset('js/order.js') }}" defer></script>
+
+
+        {{-- <script>
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: '{{ session('success') }}',
+                showConfirmButton: false,
+                timer: 2700
+            });
+        </script> --}}
     </body>
 
 </html>
