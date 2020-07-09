@@ -71,8 +71,8 @@
                                     @foreach ($category->PaginatedProducts as $product)
                                         <div class="col-lg-3 col-md-6 mb-4">
                                             <div class="card h-100 m-3">
-                                                <div class="card-header text-center" style="background-color: rgb(235, 107, 107)">
-                                                    <h4 class="card-title text-white">{{ $product->name }}</h4>
+                                                <div class="card-header text-center shadow bg-info">
+                                                    <h4 class="card-title bg-white  p-2 shadow border border-dark"><b>{{ ucfirst(trans($product->name)) }}</b></h4>
                                                 </div>
                                                 <a href="{{ route('show_product', $product->id ) }}"><img class="card-img-top mx-auto mt-3 w-60" src="{{ $product->image_path }}" alt=""></a>
                                                 <div class="card-body" style="margin-top: 10px;">
