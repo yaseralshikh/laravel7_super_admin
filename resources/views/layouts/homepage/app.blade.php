@@ -7,7 +7,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Store') }}</title>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
@@ -42,7 +42,7 @@
             </main>
 
             <!-- Navbar -->
-            @include('layouts._navbar')
+            @include('layouts.homepage._navbar')
 
             <!-- partials session -->
             @include('partials._session')
@@ -53,7 +53,7 @@
         </div>
 
         <!-- Footer -->
-        @include('layouts._footer')
+        @include('layouts.homepage._footer')
 
         {{--<!-- jQuery 3 -->--}}
         {{-- <script src="{{ asset('js/jquery.min.js') }}"></script> --}}

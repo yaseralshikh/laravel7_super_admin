@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.homepage.app')
 
 @section('content')
     <div class="container p-4" dir="rtl">

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.homepage.app')
 
 @section('content')
     <div class="row justify-content-center">
@@ -57,7 +57,7 @@
                 @endforeach --}}
 
                 <!-- Page slides -->
-                @include('layouts._slides')
+                @include('layouts.homepage._slides')
                 
                 <!-- Page Features -->
                 @if($categories->count() > 0)
