@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
         $categories =  \App\Category::all();
         $products =  \App\Product::where([
             ['display', '1'],
-            ['stock', '>', '1'],
+            // ['stock', '>', '1'],
         ])->get();
 
         //view()->share('nav_categories',$categories);

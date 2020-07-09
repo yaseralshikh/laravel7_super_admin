@@ -69,26 +69,27 @@
                                 </div>
                                 <div class="row text-center">
                                     @foreach ($category->PaginatedProducts as $product)
-                                        @if ($product->stock > 0)
-                                            <div class="col-lg-3 col-md-6 mb-4">
-                                                <div class="card h-100 m-3">
-                                                    <div class="card-header text-center" style="background-color: rgb(247, 230, 174)">
-                                                        <h4 class="card-title">{{ $product->name }}</h4>
-                                                    </div>
-                                                    <a href="{{ route('show_product', $product->id ) }}"><img class="card-img-top mx-auto mt-3 w-60" src="{{ $product->image_path }}" alt=""></a>
-                                                    <div class="card-body" style="margin-top: 10px;">
-                                                        <p class="card-text">{!!  Str::limit($product->description, 200, $end = ' ... ') !!} @if (Str::length($product->description) > 200) <a href='{{ route('show_product' , $product->id ) }}' class='fa fa-hand-o-left'> المزيد</a> @endif </p>
-                                                    </div>
-                                                    <div class="card-footer">
-                                                        <p class="card-text list-group-item">Price : {{ $product->sale_price }} $</p>
-                                                        <p class="card-text list-group-item">Stock : {{ $product->stock }}</p>
-                                                        {{-- <a href="{{ route('cart.add', $product->id ) }}" class="btn btn-primary btn-lg btn-block add_to_cart">@lang('site.add_to_cart')</a> --}}
+                                        <div class="col-lg-3 col-md-6 mb-4">
+                                            <div class="card h-100 m-3">
+                                                <div class="card-header text-center" style="background-color: rgb(235, 107, 107)">
+                                                    <h4 class="card-title text-white">{{ $product->name }}</h4>
+                                                </div>
+                                                <a href="{{ route('show_product', $product->id ) }}"><img class="card-img-top mx-auto mt-3 w-60" src="{{ $product->image_path }}" alt=""></a>
+                                                <div class="card-body" style="margin-top: 10px;">
+                                                    <p class="card-text">{!!  Str::limit($product->description, 200, $end = ' ... ') !!} @if (Str::length($product->description) > 200) <a href='{{ route('show_product' , $product->id ) }}' class='fa fa-hand-o-left'> المزيد</a> @endif </p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <p class="card-text list-group-item">@lang('site.price') : {{ $product->sale_price }} $</p>
+                                                    <p class="card-text list-group-item">@lang('site.stock') : {{ $product->stock }}</p>
+                                                    {{-- <a href="{{ route('cart.add', $product->id ) }}" class="btn btn-primary btn-lg btn-block add_to_cart">@lang('site.add_to_cart')</a> --}}
+                                                    @if ($product->stock > 0)
                                                         <button type="button" data-url="{{ route('cart.add', $product->id ) }}" class="btn btn-primary btn-lg btn-block add_to_cart">@lang('site.add_to_cart')</button>
-                                                    </div>
+                                                    @else
+                                                        <button type="button" class="btn btn-secondary btn-lg btn-block disabled">@lang('site.notAvailable')</button>
+                                                    @endif
                                                 </div>
                                             </div>
-                                        @endif
-
+                                        </div>
                                     @endforeach
                                 </div>
                                 <!-- /.row -->

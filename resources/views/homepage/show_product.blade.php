@@ -40,7 +40,11 @@
                                         </span> 
                                     </p> <!-- price-detail-wrap .// -->
                                     <hr>
-                                    <a href="{{ route('cart.add', $product->id ) }}" class="btn btn-lg btn-primary text-uppercase"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> @lang('site.add_to_cart')</a>
+                                    @if ($product->stock > 0)
+                                        <button type="button" data-url="{{ route('cart.add', $product->id ) }}" class="btn btn-primary btn-lg add_to_cart">@lang('site.add_to_cart')</button>
+                                    @else
+                                        <button type="button" class="btn btn-secondary btn-lg disabled">@lang('site.notAvailable')</button>
+                                    @endif
                                 </article> <!-- card-body.// -->
                             </aside> <!-- col.// -->
                         </div> <!-- row.// -->
