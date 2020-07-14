@@ -68,6 +68,7 @@ return [
     'price' => 'السعر',
     'sale_price' => 'سعر البيع',
     'stock' => 'المخزن',
+    'unit_price' => 'سعر الوحدة',
     'profit_percent' => 'المكسب',
     'display' => 'الحالة',
     'banner_image' => 'صورة البنر',
