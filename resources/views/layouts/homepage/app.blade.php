@@ -34,6 +34,9 @@
         <link rel="stylesheet" href="{{ asset('dashboard_files/plugins/noty/noty.css') }}">
         <script src="{{ asset('dashboard_files/plugins/noty/noty.min.js') }}"></script>
 
+        {{-- image zoom in effect --}}
+        <link rel="stylesheet" href="{{ asset('css/zoom.css') }}">
+
     </head>
     <body>
         <div id="app">
@@ -68,6 +71,9 @@
 
         {{--order js--}}
         <script src="{{ asset('js/order.js') }}" defer></script>
+
+        {{-- image zoom in effect js--}}
+        <script src="{{ asset('js/zoom.js') }}"></script>
 
 
         {{-- <script>

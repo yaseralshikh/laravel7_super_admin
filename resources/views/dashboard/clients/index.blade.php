@@ -48,7 +48,7 @@
 
                     @if ($clients->count() > 0)
 
-                        <table class="table table-hover table-responsive-sm">
+                        <table class="table table-hover table-responsive">
 
                             <thead class="bg-info">
                             <tr>

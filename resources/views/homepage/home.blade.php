@@ -20,7 +20,7 @@
 
                         @if ($category->products->count() > 0)
 
-                            <table class="table table-hover">
+                            <table class="table table-hover table-responsive-sm">
                                 <tr>
                                     <th>@lang('site.name')</th>
                                     <th>@lang('site.stock')</th>
@@ -72,11 +72,11 @@
                                         <div class="col-lg-3 col-md-6 mb-4">
                                             <div class="card h-100 m-3">
                                                 <div class="card-header text-center shadow bg-info">
-                                                    <h4 class="card-title bg-white  p-2 shadow border border-dark"><b>{{ ucfirst(trans($product->name)) }}</b></h4>
+                                                    <a href="{{ route('show_product', $product->id ) }}"><h4 class="card-title bg-white  p-2 shadow border border-dark"><b>{{ ucfirst(trans($product->name)) }}</b></h4></a>
                                                 </div>
-                                                <a href="{{ route('show_product', $product->id ) }}"><img class="card-img-top mx-auto mt-3 w-60" src="{{ $product->image_path }}" alt=""></a>
+                                                <img class="card-img-top mx-auto mt-3 w-60" data-action="zoom" src="{{ $product->image_path }}" alt="">
                                                 <div class="card-body" style="margin-top: 10px;">
-                                                    <p class="card-text">{!!  Str::limit($product->description, 200, $end = ' ... ') !!} @if (Str::length($product->description) > 200) <a href='{{ route('show_product' , $product->id ) }}' class='fa fa-hand-o-left'> المزيد</a> @endif </p>
+                                                    <p class="card-text">{!!  Str::limit($product->description, 190, $end = ' ... ') !!} @if (Str::length($product->description) > 190) <a href='{{ route('show_product' , $product->id ) }}' class='fa fa-hand-o-left'> المزيد</a> @endif </p>
                                                 </div>
                                                 <div class="card-footer">
                                                     <p class="card-text list-group-item">@lang('site.price') : {{ $product->sale_price }} $</p>

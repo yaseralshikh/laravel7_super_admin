@@ -6,7 +6,7 @@
         <div class="card">
 
             <div class="card-body" id="print-area">
-                <table class="table table-bordered text-center">
+                <table class="table table-bordered text-center table-responsive-sm">
                     <tr>
                         <td colspan="3">
                             <h1 class="float-right pr-5 pt-3">@lang('site.invoice')</h1>
@@ -34,7 +34,7 @@
                         <td>{{ $order->total_price }}</td>
                     </tr>
                 </table>
-                <table  class="table table-hover table-bordered">
+                <table  class="table table-hover table-bordered table-responsive-sm">
                     <thead class="bg-dark text-white text-center">
                         <tr>
                             <th>@lang('site.product')</th>

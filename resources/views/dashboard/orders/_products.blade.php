@@ -19,7 +19,7 @@
             <th class="text-center">{{ $order->user->address }}</th>
         </tbody>
     </table>
-    <table class="table table-hover table-bordered">
+    <table class="table table-hover table-bordered table-responsive">
         <thead class="bg-info">
         <tr>
             <th>@lang('site.name')</th>

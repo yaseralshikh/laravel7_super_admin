@@ -49,7 +49,7 @@
 
                                                 @if ($category->products->count() > 0)
 
-                                                    <table class="table table-hover">
+                                                    <table class="table table-hover table-responsive">
                                                         <tr class="bg-success">
                                                             <th>@lang('site.name')</th>
                                                             <th>@lang('site.stock')</th>
@@ -123,7 +123,7 @@
 
                                 @include('partials._errors')
 
-                                <table class="table table-hover">
+                                <table class="table table-hover table-responsive">
                                     <thead>
                                     <tr>
                                         <th>@lang('site.product')</th>
@@ -178,7 +178,7 @@
                                             <div id="{{ $order->created_at->format('d-m-Y-s') }}" class="panel-collapse collapse">
 
                                                 <div class="panel-body">
-                                                    <table  class="table table-hover">
+                                                    <table  class="table table-hover table-responsive">
                                                         <thead class="bg-warning">
                                                             <tr>
                                                                 <th>@lang('site.product')</th>

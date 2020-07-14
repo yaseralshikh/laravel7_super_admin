@@ -20,7 +20,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except(['index' , 'search_product']);
+        $this->middleware('auth')->except(['index' ,'show', 'search_product']);
     }
 
     /**

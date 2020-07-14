@@ -19,10 +19,11 @@ return [
     'yes' => 'نعم',
     'no' => 'لا',
 
-    'login' => 'تسجيل الدخول',
+    'log_in' => 'تسجيل الدخول',
     'remember_me' => 'تذكرني',
     'password' => 'كلمه المرور',
     'password_confirmation' => 'تاكيد كلمه المرور',
+    'forget_password' => 'نسيت كلمة المرور ؟',
 
     'added_successfully' => 'تم اضافه البيانات بنجاح',
     'updated_successfully' => 'تم تعديل البيانات بنجاح',

@@ -57,7 +57,7 @@
 
                     @if ($products->count() > 0)
 
-                        <table class="table table-hover">
+                        <table class="table table-hover table-responsive">
 
                             <thead class="bg-info">
                             <tr>

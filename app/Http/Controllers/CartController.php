@@ -8,6 +8,9 @@ use App\user;
 use App\Order;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactClients;
+
 use Log;
 
 class CartController extends Controller
@@ -48,7 +51,11 @@ class CartController extends Controller
         session()->forget('cart');
 
         session()->flash('success', __('site.added_successfully'));
+
         $order = $client->orders()->with('products')->latest()->first();
+
+        Mail::to($client->email)->send(new ContactClients($order));
+
         return redirect()->route('cart.invoice', compact('order'));
     }
 

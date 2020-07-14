@@ -25,7 +25,7 @@
                       
                           <div id="collapseme{{$order->id}}" class="collapse out ShowHide">
                             <div class="card-body">
-                                <table  class="table table-hover table-bordered">
+                                <table  class="table table-hover table-bordered table-responsive-sm">
                                     <thead class="bg-info text-white">
                                         <tr>
                                             <th>@lang('site.product')</th>

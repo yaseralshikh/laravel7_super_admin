@@ -49,7 +49,7 @@
 
                                                 @if ($category->products->count() > 0)
 
-                                                    <table class="table table-hover">
+                                                    <table class="table table-hover table-responsive">
                                                         <tr>
                                                             <th>@lang('site.name')</th>
                                                             <th>@lang('site.stock')</th>
@@ -122,7 +122,7 @@
                                 {{ csrf_field() }}
                                 {{ method_field('put') }}
 
-                                <table class="table table-hover">
+                                <table class="table table-hover table-responsive">
                                     <thead>
                                     <tr>
                                         <th>@lang('site.product')</th>
@@ -188,7 +188,7 @@
 
                                                 <div class="panel-body">
 
-                                                    <table  class="table table-hover">
+                                                    <table  class="table table-hover table-responsive">
                                                         <thead class="bg-warning">
                                                             <tr>
                                                                 <th>@lang('site.product')</th>

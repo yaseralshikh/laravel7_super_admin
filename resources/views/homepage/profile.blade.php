@@ -11,11 +11,11 @@
 
     <div class="container bg-white mt-3 mb-3 border border-dark">
         <div class="row p-5">
-            <div class="col-6 text-center">
-                <img src="{{ $user->image_path }}" alt="avatar" style="width:150px; height:150px; float:lift; border-radius:50%; margin-right:25px;">
+            <div class="col-m-6 m-auto pb-2">
+                <img src="{{ $user->image_path }}" alt="avatar" style="width:250px; height:250px; float:lift; border-radius:45%; margin-right:25px;">
             </div>
 
-            <div class="col-6 pl-5">
+            <div class="col-m-6 pl-2">
                 <h3 class="text-danger">{{ $user->first_name . ' ' .  $user->last_name }}'s Profile</h3>
                 <h3><i class="fa fa-phone" aria-hidden="true"></i> {{ $user->phone }}</h3>
                 <h3><i class="fa fa-address-book" aria-hidden="true"></i> {{ $user->address }}</h3>

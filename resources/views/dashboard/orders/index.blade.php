@@ -50,7 +50,7 @@
 
                             <div class="box-body table-responsive">
 
-                                <table class="table table-hover">
+                                <table class="table table-hover table-responsive">
                                     <tr class="bg-info">
                                         <th>@lang('site.client_name')</th>
                                         <th>@lang('site.price')</th>

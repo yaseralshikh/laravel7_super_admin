@@ -15,7 +15,7 @@
 
                         @include('partials._errors')
         
-                        <table class="table table-hover">
+                        <table class="table table-hover table-responsive-sm">
                             <thead class="bg-secondary text-white">
                                 <tr>
                                     <th class="text-center bg-info"  colspan="6">@lang('site.your_ShoppingCart')</th>
