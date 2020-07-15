@@ -6,35 +6,35 @@
         <div class="card">
 
             <div class="card-body" id="print-area">
-                <table class="table table-bordered text-center table-responsive-sm">
+                <table class="table table-bordered text-center table-sm">
                     <tr>
                         <td colspan="3">
                             <h1 class="float-right pr-5 pt-3">@lang('site.invoice')</h1>
                             <img class="float-left w-25" src="{{ asset('uploads/laravel_logo.png') }}" class="img-circle" alt="User Image">
                         </td>
                     </tr>
-                    <tr class="h4" style="background-color: rgba(231, 231, 231, 0.76)">
+                    <tr class="h6" style="background-color: rgba(231, 231, 231, 0.76)">
                         <td>@lang('site.client_name')</td>
                         <td>@lang('site.phone')</td>
                         <td>@lang('site.email')</td>
                     </tr>
-                    <tr class="h5">
+                    <tr class="h6">
                         <td>{{ $order->user->full_name }}</td>
                         <td>{{ $order->user->phone }}</td>
                         <td>{{ $order->user->email }}</td>
                     </tr>
-                    <tr class="h4" style="background-color: rgba(231, 231, 231, 0.76)">
+                    <tr class="h6" style="background-color: rgba(231, 231, 231, 0.76)">
                         <td>@lang('site.invoice_number')</td>
                         <td>@lang('site.invoice_data')</td>
                         <td>@lang('site.invoice_price')</td>
                     </tr>
-                    <tr class="h5">
+                    <tr class="h6">
                         <td>{{ $order->id }}</td>
                         <td>{{ $order->created_at->toDateString() }}</td>
                         <td>{{ $order->total_price }}</td>
                     </tr>
                 </table>
-                <table  class="table table-hover table-bordered table-responsive-sm">
+                <table  class="table table-hover table-bordered  table-sm">
                     <thead class="bg-dark text-white text-center">
                         <tr>
                             <th>@lang('site.product')</th>
